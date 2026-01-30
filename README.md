@@ -1,0 +1,2 @@
+# lensless_face_recognition
+This is the official pytorch implmentation of the TCSVT 2024 paper titled "Privacy-Preserving Face Recognition and Verification With Lensless Camera." IEEE Transactions on Biometrics, Behavior, and Identity Science (2024)."Henry, Chris, M. Salman Asif, and Zhu Li. "Privacy-Preserving Face Recognition and Verification With Lensless Camera".
