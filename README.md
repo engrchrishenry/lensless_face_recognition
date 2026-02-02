@@ -1,17 +1,21 @@
 # Privacy-Preserving Face Recognition and Verification with Lensless Camera
 This is the official pytorch implmentation of the TCSVT 2024 paper titled [Privacy-Preserving Face Recognition and Verification With Lensless Camera](https://ieeexplore.ieee.org/document/10793399).
 
-# Dataset Preparation
+## Dependencies
+The code is tested on Linux with the following packages:
+-PyTorch 1.11.0
+-Numpy 1.23.0
+-OpenCV Python
+-Pillow
 
-Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by (Rice University)
+## Dataset Generation
 
-- 87 subjects
-- 23,838 samples
-- Real lensless sensor measurements
-- Variations in pose, expression, and illumination
+Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University.
 
-⚠️ **Dataset is not included** in this repository due to licensing and privacy constraints.  
-Please refer to the paper for dataset access and preprocessing details.
+## Training
+
+## Testing
+
 
 ## Citation
 
