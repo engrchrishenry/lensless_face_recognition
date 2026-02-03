@@ -10,9 +10,11 @@ The code is tested on Linux with the following packages:
 4. OpenCV Python
 5. Pillow
 
-## Dataset Generation
+## Dataset Preparation
 
-Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University.
+Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which will contain .png files of the raw Flatcam sensor measurements.
+
+First split the 
 
 ## Training
 
