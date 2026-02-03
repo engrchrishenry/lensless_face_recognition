@@ -4,13 +4,11 @@ This is the official pytorch implmentation of the TCSVT 2024 paper titled [Priva
 ## Dependencies
 The code is tested on Linux with the following packages:
 
--PyTorch 1.11.0
-
--Numpy 1.23.0
-
--OpenCV Python
-
--Pillow
+1. Python 3.8
+2. PyTorch 1.11.0
+3. Numpy 1.23.0
+4. OpenCV Python
+5. Pillow
 
 ## Dataset Generation
 
