@@ -17,8 +17,13 @@ Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/da
 1. Split the data into train/test.
 ```python
 cd fc_data_process/
-python train_test_split_classification.py --data_path "path_to_input_data/" --out_path "path_to_output_folder/"
+python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_output_folder/" --resize_hw "128"
+
+python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_output_folder/" --resize_hw "128"
 ```
+
+2. Generate data for face recognition/verification
+   
 
 ## Training
 
