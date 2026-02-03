@@ -14,7 +14,11 @@ The code is tested on Linux with the following packages:
 
 Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which will contain .png files of the raw Flatcam sensor measurements.
 
-First split the 
+1. Split the data into train/test.
+```python
+cd fc_data_process/
+python train_test_split_classification.py --data_path "path_to_input_data/" --out_path "path_to_output_folder/"
+```
 
 ## Training
 
