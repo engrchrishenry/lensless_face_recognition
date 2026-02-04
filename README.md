@@ -18,8 +18,10 @@ Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/da
 ```python
 cd fc_data_process/
 python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_output_folder/" --resize_hw "128"
-
-python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_output_folder/" --resize_hw "128"
+```
+2. Generate the lensless dataset containing the proposed Multi-resolution DCT Subband Representation (folder name: dct_npy)
+```python
+python process_raw_fc_meas.py 
 ```
 
 2. Generate data for face recognition/verification
