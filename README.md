@@ -9,22 +9,39 @@ The code is tested on Linux with the following packages:
 3. Numpy 1.23.0
 4. OpenCV Python
 5. Pillow
+6. Joblib
 
 ## Dataset Preparation
 
 Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which will contain .png files of the raw Flatcam sensor measurements.
 
 1. Split the data into train/test.
-```python
-cd fc_data_process/
-python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_output_folder/" --resize_hw "128"
-```
-2. Generate the lensless dataset containing the proposed Multi-resolution DCT Subband Representation (folder name: dct_npy)
-```python
-python process_raw_fc_meas.py 
-```
+   ```python
+   cd fc_data_process/
+   python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_splitted_data/"
+   ```
+2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step if you want to use pre-computed noise locations in folder 'noise_locations' consistent with the paper.
+   ```python
+   python generate_noise_locations.py --loc_per_pixel 10
+   ```
+3. Generate the lensless dataset containing the proposed Multi-resolution DCT Subband Representation.
+   ```python
+   python process_raw_fc_meas.py --data_path "path_to_splitted_data/train" --out_path "path_to_output_folder/train"
+   python process_raw_fc_meas.py --data_path "path_to_splitted_data/test" --out_path "path_to_output_folder/test"
+   ```
+   Output folders:
 
-2. Generate data for face recognition/verification
+   - ymdct_npy: Contains the proposed Multi-resoluion DCT Subband Representation. Save as a numpy array (.npy). This would be used for training the model.
+
+   - ymdct_noisy_npy: Contains the proposed Multi-resoluion DCT Subband Representation with pseudo-random noise pattern. Save as a numpy array (.npy).
+
+   - dct_vis: Contains DCT of the sensor measurement. Saved an image file.
+
+   - meas_vis: Contains visulation of the resized sensor measurement. Saved an image file.
+4. [Optional] Generate verification pairs for testing. Skip this step if you'd like to use test pairs consistent with the paper ('pairs_verification.txt').
+   ```python
+   python generate_verification_pairs.py --data_path "path_to_output_folder/test/ymdct_npy" --output_file "pairs_new.txt" --num_of_pairs 10000
+   ```
    
 
 ## Training
@@ -32,10 +49,11 @@ python process_raw_fc_meas.py
 ## Testing
 
 
-## Citation
+## Citations
 
 If you use this work in your research, please cite:
 
+### Journal Version
 ```bibtex
 @ARTICLE{10793399,
   author={Henry, Chris and Salman Asif, M. and Li, Zhu},
@@ -47,7 +65,9 @@ If you use this work in your research, please cite:
   pages={354-367},
   keywords={Face recognition;Discrete cosine transforms;Cameras;Privacy;Image recognition;Training;Noise;Image reconstruction;Lensless camera;FlatCam;face recognition;face verification;visual privacy;discrete cosine transform},
   doi={10.1109/TBIOM.2024.3515144}}
-
+```
+### Conference Version
+```bibtex
 @INPROCEEDINGS{10096627,
   author={Henry, Chris and Asif, M. Salman and Li, Zhu},
   booktitle={ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
@@ -58,3 +78,7 @@ If you use this work in your research, please cite:
   pages={1-5},
   keywords={Training;Privacy;Face recognition;Speech recognition;Cameras;Time measurement;Discrete cosine transforms;Lensless camera;FlatCam;face recognition;visual privacy;DCT},
   doi={10.1109/ICASSP49357.2023.10096627}}
+```
+
+## Contact
+In case of questions, feel free to contact at chffn@umsystem.edu or engr.chrishenry@gmail.com
