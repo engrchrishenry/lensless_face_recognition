@@ -20,7 +20,7 @@ Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/da
    cd fc_data_process/
    python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_splitted_data/"
    ```
-2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step if you want to use pre-computed noise locations in folder 'noise_locations' consistent with the paper.
+2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step if you want to use pre-computed noise locations in folder 'data/noise_locations' consistent with the paper.
    ```python
    python generate_noise_locations.py --loc_per_pixel 10
    ```
@@ -38,7 +38,7 @@ Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/da
    - dct_vis: Contains DCT of the sensor measurement. Saved an image file.
 
    - meas_vis: Contains visulation of the resized sensor measurement. Saved an image file.
-4. [Optional] Generate verification pairs for testing. Skip this step if you'd like to use test pairs consistent with the paper ('pairs_verification.txt').
+4. [Optional] Generate verification pairs for testing. Skip this step if you'd like to use test pairs consistent with the paper ('data/pairs_verification.txt').
    ```python
    python generate_verification_pairs.py --data_path "path_to_output_folder/test/ymdct_npy" --output_file "pairs_new.txt" --num_of_pairs 10000
    ```
