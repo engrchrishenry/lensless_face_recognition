@@ -1,5 +1,5 @@
 # Privacy-Preserving Face Recognition and Verification with Lensless Camera
-This is the official pytorch implmentation of the TCSVT 2024 paper titled [Privacy-Preserving Face Recognition and Verification With Lensless Camera](https://ieeexplore.ieee.org/document/10793399).
+This is the official pytorch implementation of the TCSVT 2024 paper titled [Privacy-Preserving Face Recognition and Verification With Lensless Camera](https://ieeexplore.ieee.org/document/10793399).
 
 ## Dependencies
 The code is tested on Linux with the following packages:
@@ -13,19 +13,21 @@ The code is tested on Linux with the following packages:
 
 ## Dataset Preparation
 
-Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which will contain .png files of the raw Flatcam sensor measurements.
+Download the pre-computed dataset required for training or testing the system [here]().
+
+To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which will contain .png files of the raw Flatcam sensor measurements.
 
 1. Split the data into train/test.
-   ```python
+   ```bash
    cd fc_data_process/
    python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_splitted_data/"
    ```
 2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step if you want to use pre-computed noise locations in folder 'data/noise_locations' consistent with the paper.
-   ```python
+   ```bash
    python generate_noise_locations.py --loc_per_pixel 10
    ```
-3. Generate the lensless dataset containing the proposed Multi-resolution DCT Subband Representation.
-   ```python
+3. Generate the lensless dataset containing the proposed Multi-resolution DCT Subband Representation. This may consume a couple of minutes even with multi-core processing.
+   ```bash
    python process_raw_fc_meas.py --data_path "path_to_splitted_data/train" --out_path "path_to_output_folder/train"
    python process_raw_fc_meas.py --data_path "path_to_splitted_data/test" --out_path "path_to_output_folder/test"
    ```
@@ -39,10 +41,9 @@ Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/da
 
    - meas_vis: Contains visulation of the resized sensor measurement. Saved an image file.
 4. [Optional] Generate verification pairs for testing. Skip this step if you'd like to use test pairs consistent with the paper ('data/pairs_verification.txt').
-   ```python
+   ```bash
    python generate_verification_pairs.py --data_path "path_to_output_folder/test/ymdct_npy" --output_file "pairs_new.txt" --num_of_pairs 10000
    ```
-   
 
 ## Training
 
