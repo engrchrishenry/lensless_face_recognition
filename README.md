@@ -1,24 +1,35 @@
 # Privacy-Preserving Face Recognition and Verification with Lensless Camera
 This is the official pytorch implementation of the TCSVT 2024 paper titled [Privacy-Preserving Face Recognition and Verification With Lensless Camera](https://ieeexplore.ieee.org/document/10793399).
 
-## Dependencies
-The code is tested on Linux with the following packages:
+## Prerequisites
+The code is tested on Linux with the following prerequisites:
 
-1. Python 3.8
-2. PyTorch 1.11.0
-3. Numpy 1.23.0
-4. OpenCV Python
-5. Pillow
-6. Scipy
-7. Scikit Learn
-8. Joblib
+1. Python 3.10
+2. PyTorch 1.11.0 (CUDA 11.3)
+3. Numpy 1.26.4
 
 ## Installation
 
+- Clone this repository
+   ```bash
+   git clone https://github.com/engrchrishenry/lensless_face_recognition.git
+   cd lensless_face_recognition
+   ```
+
+- Create conda environment
+   ```bash
+   conda create --name lfc python=3.10
+   conda activate lfc
+   ```
+
+- Install dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Dataset Preparation
 
-Download the pre-computed lensless dataset required for training or testing the system [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQBgLURyOuKgSrwfl8fLn8ipAY6Ikc-va09tctmaHQaVGcY?e=1Xz4Bo).
+You may download the pre-computed lensless dataset required for training or testing the system [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQBgLURyOuKgSrwfl8fLn8ipAY6Ikc-va09tctmaHQaVGcY?e=1Xz4Bo).
 
 To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which will contain .png files of the raw Flatcam sensor measurements.
 
@@ -38,20 +49,20 @@ To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https:/
    ```
    Output folders:
 
-   - ymdct_npy: Contains the proposed Multi-resoluion DCT Subband Representation. Save as a numpy array (.npy). This would be used for training the model.
+   - ymdct_npy: Contains the proposed Multi-resoluion DCT Subband Representation (ymdct) (.npy).
 
-   - ymdct_noisy_npy: Contains the proposed Multi-resoluion DCT Subband Representation with pseudo-random noise pattern. Save as a numpy array (.npy).
+   - ymdct_noisy_npy: Contains the proposed Multi-resoluion DCT Subband Representation with pseudo-random noise (.npy).
 
-   - dct_vis: Contains DCT of the sensor measurement. Saved an image file.
+   - dct_vis: Contains visualizatn of DCT of the sensor measurement (.jpg).
 
-   - meas_vis: Contains visulation of the resized sensor measurement. Saved an image file.
-4. [Optional] Generate verification pairs for testing. Skip this step if you'd like to use test pairs consistent with the paper ('data/pairs_verification.txt').
+   - meas_vis: Contains visulation of the resized sensor measurement (.jpg).
+4. [Optional] Generate verification pairs for testing. Skip this step for using pairs consistent with our paper ('data/pairs_verification.txt').
    ```bash
    python generate_verification_pairs.py --data_path "lensless_data/test/ymdct_npy" --output_file "pairs.txt" --num_of_pairs 10000
    ```
 
 ## Training
-Unzip the pre-computed lensless data into the parent directory. You may also generate the data from scratch and use it for training. To train the network:
+Unzip the pre-computed lensless data into the parent directory. You may also generate the data from scratch. To train the network:
 ```bash
 python train.py --train_data "lensless_data/train/ymdct_npy" --test_data "lensless_data/test/ymdct_npy" --batch_size 64 --lr 0.05 --num_epochs 100
 ```
@@ -59,7 +70,7 @@ python train.py --train_data "lensless_data/train/ymdct_npy" --test_data "lensle
 
 Dowload the pre-trained weights [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQAI5HfkPTPnT4zYokmAKaLCAUGn34FcO1CFXHa0eA3iARw?e=nkmEhg).
 
-Or train the network and copy your weights file into the "weights" folder in the parent directory.
+Or train the network and copy your weights file in the [weights]() folder.
 
 - To test face recognition on ymdct:
    ```bash
@@ -73,7 +84,7 @@ Or train the network and copy your weights file into the "weights" folder in the
   ```bash
    python test_face_verification.py --test_data "lensless_data/test/ymdct_npy" --pairs "data/verification_pairs.txt" --weights "weights/pretrained_weights.py" --noise_locs "data/noise_locations/noise_10px_per_block.npy"  --batch_size 64
   ```
-  Outputs a 'results.json' file containing 'true_labels' and 'pred_scores' which could be used for computing TPR, FPR, and AUC.
+  [test_face_verification.py](https://github.com/engrchrishenry/lensless_face_recognition/blob/main/test_face_verification.py) outputs a 'results.json' file containing 'true_labels' and 'pred_scores' which could be used for computing TPR, FPR, and AUC.
 
 ## Citations
 
