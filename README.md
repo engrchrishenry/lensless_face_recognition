@@ -38,7 +38,7 @@ To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https:/
    cd fc_data_process/
    python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_splitted_data/"
    ```
-2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step if you want to use pre-computed noise locations in [data/noise_locations/](https://github.com/engrchrishenry/lensless_face_recognition/tree/main/data/noise_locations) consistent with the paper.
+2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step if you want to use pre-computed noise locations in [noise_locations](https://github.com/engrchrishenry/lensless_face_recognition/tree/main/data/noise_locations) consistent with the paper.
    ```bash
    python generate_noise_locations.py --loc_per_pixel 10
    ```
