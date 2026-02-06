@@ -3,6 +3,8 @@ This is the official implementation of our TCSVT 2024 paper titled [Privacy-Pres
 
 ![Alt text](overview_TBIOM_2024.jpg)
 
+<img src="overview_TBIOM_2024.jpg" alt="Alt text" width="300"/>
+
 ## Prerequisites
 The code is tested on Linux with the following prerequisites:
 
