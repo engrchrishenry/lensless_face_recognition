@@ -1,5 +1,5 @@
 # Privacy-Preserving Face Recognition and Verification with Lensless Camera
-This is the official implementation of our TBIOM 2025 paper titled [Privacy-Preserving Face Recognition and Verification With Lensless Camera](https://ieeexplore.ieee.org/document/10793399).
+This is the official implementation of our IEEE Trans. Biom. Behav. Identity Sci. (TBIOM) 2025 paper titled [Privacy-Preserving Face Recognition and Verification With Lensless Camera](https://ieeexplore.ieee.org/document/10793399).
 
 <div align="center">
   <img src="overview_TBIOM_2025.jpg" alt="Overview" width="550"/>
