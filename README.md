@@ -9,17 +9,12 @@ The code is tested on Linux with the following packages:
 3. Numpy 1.23.0
 4. OpenCV Python
 5. Pillow
-6. Joblib
+6. Scipy
+7. Scikit Learn
+8. Joblib
 
 ## Installation
 
-
-
-## Quick Demo
-
-Dowload the pre-trained weights [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQAI5HfkPTPnT4zYokmAKaLCAUGn34FcO1CFXHa0eA3iARw?e=nkmEhg).
-
-Dowload the pre-computed lensless dataset [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQBgLURyOuKgSrwfl8fLn8ipAY6Ikc-va09tctmaHQaVGcY?e=1Xz4Bo).
 
 ## Dataset Preparation
 
@@ -52,16 +47,33 @@ To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https:/
    - meas_vis: Contains visulation of the resized sensor measurement. Saved an image file.
 4. [Optional] Generate verification pairs for testing. Skip this step if you'd like to use test pairs consistent with the paper ('data/pairs_verification.txt').
    ```bash
-   python generate_verification_pairs.py --data_path "path_to_output_folder/test/ymdct_npy" --output_file "pairs_new.txt" --num_of_pairs 10000
+   python generate_verification_pairs.py --data_path "lensless_data/test/ymdct_npy" --output_file "pairs.txt" --num_of_pairs 10000
    ```
 
 ## Training
 Unzip the pre-computed lensless data into the parent directory. You may also generate the data from scratch and use it for training. To train the network:
 ```bash
-python train.py --train_data lensless_data/train/ymdct_npy --test_data lensless_data/test/ymdct_npy --batch_size 64 --lr 0.05 --num_epochs 100
+python train.py --train_data "lensless_data/train/ymdct_npy" --test_data "lensless_data/test/ymdct_npy" --batch_size 64 --lr 0.05 --num_epochs 100
 ```
 ## Testing
 
+Dowload the pre-trained weights [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQAI5HfkPTPnT4zYokmAKaLCAUGn34FcO1CFXHa0eA3iARw?e=nkmEhg).
+
+Or train the network and copy your weights file into the "weights" folder in the parent directory.
+
+- To test face recognition on ymdct:
+   ```bash
+   python test_face_recognition.py --test_data "lensless_data/test/ymdct_npy" --weights "weights/pretrained_weights.py" --batch_size 64
+   ```
+- To test face recognition on ymdct with pseudo-random noise:
+   ```bash
+   python test_face_recognition.py --test_data "lensless_data/test/ymdct_noisy_npy_10px_per_block" --weights "weights/pretrained_weights.py" --noise_locs "data/noise_locations/noise_10px_per_block.npy"  --batch_size 64
+   ```
+- To test face verification:
+  ```bash
+   python test_face_verification.py --test_data "lensless_data/test/ymdct_npy" --pairs "data/verification_pairs.txt" --weights "weights/pretrained_weights.py" --noise_locs "data/noise_locations/noise_10px_per_block.npy"  --batch_size 64
+  ```
+  Outputs a 'results.json' file containing 'true_labels' and 'pred_scores' which could be used for computing TPR, FPR, and AUC.
 
 ## Citations
 
