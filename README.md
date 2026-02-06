@@ -68,9 +68,7 @@ python train.py --train_data "lensless_data/train/ymdct_npy" --test_data "lensle
 ```
 ## Testing
 
-Dowload the pre-trained weights [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQAI5HfkPTPnT4zYokmAKaLCAUGn34FcO1CFXHa0eA3iARw?e=nkmEhg).
-
-Or train the network and copy your weights file in the [weights](https://github.com/engrchrishenry/lensless_face_recognition/tree/main/weights) folder.
+Dowload the [pre-trained weights](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQAI5HfkPTPnT4zYokmAKaLCAUGn34FcO1CFXHa0eA3iARw?e=nkmEhg) or train the network from scratch and copy the weights to the [weights](https://github.com/engrchrishenry/lensless_face_recognition/tree/main/weights) folder.
 
 - To test face recognition on ymdct:
    ```bash
