@@ -88,7 +88,7 @@ Dowload the [pre-trained weights](https://mailmissouri-my.sharepoint.com/:u:/g/p
 
 If you use this work in your research, please cite:
 
-### Journal Version
+#### Journal Version
 ```bibtex
 @ARTICLE{10793399,
   author={Henry, Chris and Salman Asif, M. and Li, Zhu},
@@ -101,7 +101,7 @@ If you use this work in your research, please cite:
   keywords={Face recognition;Discrete cosine transforms;Cameras;Privacy;Image recognition;Training;Noise;Image reconstruction;Lensless camera;FlatCam;face recognition;face verification;visual privacy;discrete cosine transform},
   doi={10.1109/TBIOM.2024.3515144}}
 ```
-### Conference Version
+#### Conference Version
 ```bibtex
 @INPROCEEDINGS{10096627,
   author={Henry, Chris and Asif, M. Salman and Li, Zhu},
