@@ -11,9 +11,19 @@ The code is tested on Linux with the following packages:
 5. Pillow
 6. Joblib
 
+## Installation
+
+
+
+## Quick Demo
+
+Dowload the pre-trained weights [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQAI5HfkPTPnT4zYokmAKaLCAUGn34FcO1CFXHa0eA3iARw?e=nkmEhg).
+
+Dowload the pre-computed lensless dataset [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQBgLURyOuKgSrwfl8fLn8ipAY6Ikc-va09tctmaHQaVGcY?e=1Xz4Bo).
+
 ## Dataset Preparation
 
-Download the pre-computed dataset required for training or testing the system [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQBgLURyOuKgSrwfl8fLn8ipAY6Ikc-va09tctmaHQaVGcY?e=1Xz4Bo).
+Download the pre-computed lensless dataset required for training or testing the system [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQBgLURyOuKgSrwfl8fLn8ipAY6Ikc-va09tctmaHQaVGcY?e=1Xz4Bo).
 
 To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which will contain .png files of the raw Flatcam sensor measurements.
 
@@ -46,7 +56,10 @@ To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https:/
    ```
 
 ## Training
-
+Unzip the pre-computed lensless data into the parent directory. You may also generate the data from scratch and use it for training. To train the network:
+```bash
+python train.py --train_data lensless_data/train/ymdct_npy --test_data lensless_data/test/ymdct_npy --batch_size 64 --lr 0.05 --num_epochs 100
+```
 ## Testing
 
 
