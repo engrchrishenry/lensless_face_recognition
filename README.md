@@ -31,14 +31,14 @@ The code is tested on Linux with the following prerequisites:
 
 You may download the pre-computed lensless dataset required for training or testing the system [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQBgLURyOuKgSrwfl8fLn8ipAY6Ikc-va09tctmaHQaVGcY?e=1Xz4Bo).
 
-To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which will contain .png files of the raw Flatcam sensor measurements.
+To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/databases/flatcam-face-dataset/) by Rice University. Particurlarly, download the "Raw captures" ("fc_captures.tar.gz") which contains raw Flatcam sensor measurements.
 
 1. Split the data into train/test.
    ```bash
    cd fc_data_process/
    python prep_data_recog_complete.py --data_path "path_to_input_data/" --out_path "path_to_splitted_data/"
    ```
-2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step if you want to use pre-computed noise locations in folder 'data/noise_locations' consistent with the paper.
+2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step if you want to use pre-computed noise locations in folder [data/noise_locations](https://github.com/engrchrishenry/lensless_face_recognition/tree/main/data/noise_locations) consistent with the paper.
    ```bash
    python generate_noise_locations.py --loc_per_pixel 10
    ```
@@ -56,7 +56,7 @@ To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https:/
    - dct_vis: Contains visualizatn of DCT of the sensor measurement (.jpg).
 
    - meas_vis: Contains visulation of the resized sensor measurement (.jpg).
-4. [Optional] Generate verification pairs for testing. Skip this step for using pairs consistent with our paper ('data/pairs_verification.txt').
+4. [Optional] Generate verification pairs for testing. Skip this step for using pairs consistent with our paper ([data/pairs_verification.txt](https://github.com/engrchrishenry/lensless_face_recognition/blob/main/data/verification_pairs.txt)).
    ```bash
    python generate_verification_pairs.py --data_path "lensless_data/test/ymdct_npy" --output_file "pairs.txt" --num_of_pairs 10000
    ```
@@ -70,7 +70,7 @@ python train.py --train_data "lensless_data/train/ymdct_npy" --test_data "lensle
 
 Dowload the pre-trained weights [here](https://mailmissouri-my.sharepoint.com/:u:/g/personal/chffn_umsystem_edu/IQAI5HfkPTPnT4zYokmAKaLCAUGn34FcO1CFXHa0eA3iARw?e=nkmEhg).
 
-Or train the network and copy your weights file in the [weights]() folder.
+Or train the network and copy your weights file in the [weights](https://github.com/engrchrishenry/lensless_face_recognition/tree/main/weights) folder.
 
 - To test face recognition on ymdct:
    ```bash
