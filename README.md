@@ -56,7 +56,7 @@ To prepare dataset from scratch, download the [**FlatCam Face Dataset**](https:/
    - dct_vis: Contains visualizatn of DCT of the sensor measurement (.jpg).
 
    - meas_vis: Contains visulation of the resized sensor measurement (.jpg).
-4. [Optional] Generate verification pairs for testing. Skip this step for using pairs consistent with our paper ([data/pairs_verification.txt](https://github.com/engrchrishenry/lensless_face_recognition/blob/main/data/verification_pairs.txt)).
+4. [Optional] Generate verification pairs for testing. Skip this step for using pairs consistent with our paper ([pairs_verification.txt](https://github.com/engrchrishenry/lensless_face_recognition/blob/main/data/verification_pairs.txt)).
    ```bash
    python generate_verification_pairs.py --data_path "lensless_data/test/ymdct_npy" --output_file "pairs.txt" --num_of_pairs 10000
    ```
