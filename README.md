@@ -125,5 +125,15 @@ If you use this work, please cite:
   doi={10.1109/ICASSP49357.2023.10096627}}
 ```
 
+## Acknowledgements
+
+This research was supported in part by the **National Science Foundation (NSF)** under Award **2148382** and Award **2133084**.
+
+Parts of this codebase are adapted from or inspired by the FlatCam implementation available at:
+
+https://github.com/tanjasper/flatcam
+
+We thank the authors and contributors for making their work publicly available.
+
 ## Contact
 In case of questions, feel free to contact at chffn@umsystem.edu or engr.chrishenry@gmail.com
