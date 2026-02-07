@@ -1,9 +1,4 @@
 # Privacy-Preserving Face Recognition and Verification with Lensless Camera
-[![Paper](https://img.shields.io/badge/IEEE-TBIOM%202025-blue)](https://ieeexplore.ieee.org/document/10793399)
-[![PyTorch](https://img.shields.io/badge/PyTorch-1.11.0-orange)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
-
 This is the official implementation of our IEEE TBIOM 2024 paper titled [Privacy-Preserving Face Recognition and Verification With Lensless Camera](https://ieeexplore.ieee.org/document/10793399).
 
 The code supports face recognition and verification directly from lensless sensor measurements, without reconstructing images, using the proposed Multi-resolution DCT Subband Representation.
