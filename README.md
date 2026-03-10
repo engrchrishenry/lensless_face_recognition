@@ -8,7 +8,7 @@ The code supports face recognition and verification directly from lensless senso
 </div>
 
 ## Prerequisites
-The code is tested on Linux with the following prerequisites:
+The code was tested on Linux with the following prerequisites:
 
 1. Python 3.10
 2. PyTorch 1.11.0 (CUDA 11.3)
@@ -49,7 +49,7 @@ Download the [**FlatCam Face Dataset**](https://computationalimaging.rice.edu/da
 1. Split the data into train/test.
    ```bash
    cd fc_data_process/
-   python prep_data_recog_complete.py --data_path <path_to_input_data> --out_path <path_to_splitted_data>"
+   python prep_data_recog_complete.py --data_path <path_to_input_data> --out_path <path_to_splitted_data>
    ```
 2. [Optional] Run the following to generate pseudo-random noise locations. Skip this step to use pre-computed noise locations in [noise_locations](https://github.com/engrchrishenry/lensless_face_recognition/tree/main/data/noise_locations) consistent with the paper.
    ```bash
